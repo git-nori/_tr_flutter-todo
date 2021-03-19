@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/model/entities/entities.dart';
 import 'todo_state.dart';
@@ -20,7 +21,7 @@ class TodoController extends StateNotifier<TodoState> {
     state = state.copyWith(todoList: [...state.todoList, newTodo]);
   }
 
-  void toggleTodo({int id, bool isDone}) {
+  void toggleTodo({@required int id}) {
     final newTodoList = state.todoList.map((e) {
       if (e.id != id) {
         return e;

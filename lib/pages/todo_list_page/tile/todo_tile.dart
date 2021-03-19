@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/model/controllers/todo_controller/todo_controller.dart';
 import 'package:flutter_todo/model/entities/entities.dart';
+import 'package:flutter_todo/pages/todo_update_page/todo_upsert_page.dart';
+import 'package:flutter_todo/providers/providers.dart';
 
 class TodoTile extends ConsumerWidget {
   const TodoTile({Key key, @required this.todo}) : super(key: key);
@@ -18,7 +20,11 @@ class TodoTile extends ConsumerWidget {
               ? const TextStyle(decoration: TextDecoration.lineThrough)
               : null,
         ),
-        onTap: () {},
+        onTap: () {
+          watch(navigatorKeyProvider)
+              .currentState
+              .pushNamed(TodoUpSertPage.routeName);
+        },
         trailing: Checkbox(
           value: todo.isDone,
           onChanged: (bool value) =>

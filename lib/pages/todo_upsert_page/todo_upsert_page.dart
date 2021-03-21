@@ -13,6 +13,7 @@ class TodoUpSertPage extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final isInsert = args.todo == null;
+    final todoState = watch(todoProvider.state);
     return Scaffold(
       appBar: AppBar(
         title: Text(isInsert ? 'Todo Create' : 'Todo Update'),
@@ -20,7 +21,7 @@ class TodoUpSertPage extends ConsumerWidget {
       body: TodoUpsertForm(
         todo: isInsert
             ? Todo(
-                id: watch(todoProvider.state).todoList.length + 1,
+                id: todoState.todoList.length + 1,
                 isDone: false,
                 title: '',
               )

@@ -15,15 +15,17 @@ class TodoListPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final navigatorKey = watch(navigatorKeyProvider).currentState;
+    final navigator = watch(navigatorKeyProvider);
     return Scaffold(
       appBar: AppBar(
         title: const Text('Todo'),
         actions: [
           IconButton(
             icon: const Icon(Icons.add),
-            onPressed: () => navigatorKey.pushNamed(TodoUpSertPage.routeName,
-                arguments: TodoUpsertPageArg(todo: null)),
+            onPressed: () => navigator.currentState.pushNamed(
+              TodoUpSertPage.routeName,
+              arguments: TodoUpsertPageArg(todo: null),
+            ),
           )
         ],
       ),

@@ -12,7 +12,8 @@ class TodoTile extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
-    final navigatorKey = watch(navigatorKeyProvider).currentState;
+    final navigator = watch(navigatorKeyProvider);
+    final todoController = context.read(todoProvider);
     return Card(
       elevation: 2,
       child: ListTile(
@@ -23,15 +24,14 @@ class TodoTile extends ConsumerWidget {
               : null,
         ),
         onTap: () {
-          navigatorKey.pushNamed(
+          navigator.currentState.pushNamed(
             TodoUpSertPage.routeName,
             arguments: TodoUpsertPageArg(todo: todo),
           );
         },
         trailing: Checkbox(
           value: todo.isDone,
-          onChanged: (bool value) =>
-              watch(todoProvider).toggleTodo(id: todo.id),
+          onChanged: (bool value) => todoController.toggleTodo(id: todo.id),
         ),
       ),
     );

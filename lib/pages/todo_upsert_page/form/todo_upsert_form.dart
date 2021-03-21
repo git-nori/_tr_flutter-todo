@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/model/entities/entities.dart';
+import 'package:flutter_todo/providers/navigator.dart';
 
 import 'todo_upsert_controller.dart';
 import 'todo_upsert_provider_param.dart';
@@ -20,11 +21,28 @@ class TodoUpsertForm extends ConsumerWidget {
   final bool isInsert;
   final String submitBtnTxt;
   final _formKey = GlobalKey<FormState>();
+  void _submission(
+    GlobalKey<NavigatorState> navigator,
+    TodoUpsertController todoUpsertController,
+  ) {
+    if (!_formKey.currentState.validate()) {
+      return;
+    }
+    final isSubmitted = todoUpsertController.submit();
+    if (isSubmitted) {
+      _formKey.currentState.reset();
+      Navigator.pop(navigator.currentState.descendantContext);
+    }
+  }
+
   @override
   Widget build(BuildContext context, ScopedReader watch) {
+    final navigator = watch(navigatorKeyProvider);
     final todoUpsertProvider = todoUpsertProviderFamily(
       TodoUpsertProviderParam(isInsert: isInsert, todo: todo),
     );
+    final todoUpsertController = context.read(todoUpsertProvider);
+    final todoUpsertState = watch(todoUpsertProvider.state);
     return Form(
       key: _formKey,
       child: Padding(
@@ -34,33 +52,19 @@ class TodoUpsertForm extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             TextFormField(
-              controller: watch(todoUpsertProvider.state).titleController,
-              validator: watch(todoUpsertProvider).isValidTitle,
+              controller: todoUpsertState.titleController,
+              validator: todoUpsertController.isValidTitle,
             ),
             const SizedBox(
               height: 20,
             ),
             ElevatedButton(
-              onPressed: () => _submission(context, todoUpsertProvider),
+              onPressed: () => _submission(navigator, todoUpsertController),
               child: Text(submitBtnTxt),
             )
           ],
         ),
       ),
     );
-  }
-
-  void _submission(
-    BuildContext context,
-    AutoDisposeStateNotifierProvider<TodoUpsertController> todoUpsertProvider,
-  ) {
-    if (!_formKey.currentState.validate()) {
-      return;
-    }
-    final isSubmitted = context.read(todoUpsertProvider).submit();
-    if (isSubmitted) {
-      _formKey.currentState.reset();
-      Navigator.pop(context);
-    }
   }
 }

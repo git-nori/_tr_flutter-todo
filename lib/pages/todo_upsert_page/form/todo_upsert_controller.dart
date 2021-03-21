@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/model/controllers/todo_controller/todo_controller.dart';
 import 'package:flutter_todo/model/entities/entities.dart';
 import 'todo_upsert_state.dart';
+export 'todo_upsert_state.dart';
 
 enum TodoUpsertControllerEnum {
   insert,
@@ -18,6 +19,9 @@ class TodoUpsertController extends StateNotifier<TodoUpsertState> {
         ));
   final Reader _read;
   final bool isInsert;
+  String get editingTitle => state.titleController.text;
+  String get completedSubmitTxt =>
+      '$editingTitle is ${isInsert ? 'created' : 'updated'}';
   String isValidTitle(String val) => val.isEmpty ? 'タスクのタイトルは必須入力です' : null;
   bool submit() {
     try {

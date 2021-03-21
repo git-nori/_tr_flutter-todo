@@ -14,7 +14,7 @@ class _$TodoUpsertParameterTearOff {
   const _$TodoUpsertParameterTearOff();
 
 // ignore: unused_element
-  _TodoUpsertParameter call({Todo todo, @required bool isInsert}) {
+  _TodoUpsertParameter call({@required Todo todo, @required bool isInsert}) {
     return _TodoUpsertParameter(
       todo: todo,
       isInsert: isInsert,
@@ -114,8 +114,9 @@ class __$TodoUpsertParameterCopyWithImpl<$Res>
 
 /// @nodoc
 class _$_TodoUpsertParameter extends _TodoUpsertParameter {
-  _$_TodoUpsertParameter({this.todo, @required this.isInsert})
-      : assert(isInsert != null),
+  _$_TodoUpsertParameter({@required this.todo, @required this.isInsert})
+      : assert(todo != null),
+        assert(isInsert != null),
         super._();
 
   @override
@@ -154,7 +155,7 @@ class _$_TodoUpsertParameter extends _TodoUpsertParameter {
 
 abstract class _TodoUpsertParameter extends TodoUpsertParameter {
   _TodoUpsertParameter._() : super._();
-  factory _TodoUpsertParameter({Todo todo, @required bool isInsert}) =
+  factory _TodoUpsertParameter({@required Todo todo, @required bool isInsert}) =
       _$_TodoUpsertParameter;
 
   @override

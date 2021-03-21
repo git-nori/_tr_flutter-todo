@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/model/controllers/todo_controller/todo_controller.dart';
 import 'package:flutter_todo/model/entities/entities.dart';
 import 'package:flutter_todo/pages/todo_upsert_page/todo_upsert_page.dart';
+import 'package:flutter_todo/pages/todo_upsert_page/todo_upsert_page_arg.dart';
 import 'package:flutter_todo/providers/providers.dart';
 
 class TodoTile extends ConsumerWidget {
@@ -22,7 +23,10 @@ class TodoTile extends ConsumerWidget {
               : null,
         ),
         onTap: () {
-          navigatorKey.pushNamed(TodoUpSertPage.routeName, arguments: todo);
+          navigatorKey.pushNamed(
+            TodoUpSertPage.routeName,
+            arguments: TodoUpsertPageArg(todo: todo),
+          );
         },
         trailing: Checkbox(
           value: todo.isDone,

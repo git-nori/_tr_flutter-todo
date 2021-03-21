@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies
 
-part of 'todo_upsert_parameter.dart';
+part of 'todo_upsert_provider_param.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -10,12 +10,13 @@ part of 'todo_upsert_parameter.dart';
 T _$identity<T>(T value) => value;
 
 /// @nodoc
-class _$TodoUpsertParameterTearOff {
-  const _$TodoUpsertParameterTearOff();
+class _$TodoUpsertProviderParamTearOff {
+  const _$TodoUpsertProviderParamTearOff();
 
 // ignore: unused_element
-  _TodoUpsertParameter call({@required Todo todo, @required bool isInsert}) {
-    return _TodoUpsertParameter(
+  _TodoUpsertProviderParam call(
+      {@required Todo todo, @required bool isInsert}) {
+    return _TodoUpsertProviderParam(
       todo: todo,
       isInsert: isInsert,
     );
@@ -24,35 +25,35 @@ class _$TodoUpsertParameterTearOff {
 
 /// @nodoc
 // ignore: unused_element
-const $TodoUpsertParameter = _$TodoUpsertParameterTearOff();
+const $TodoUpsertProviderParam = _$TodoUpsertProviderParamTearOff();
 
 /// @nodoc
-mixin _$TodoUpsertParameter {
+mixin _$TodoUpsertProviderParam {
   Todo get todo;
   bool get isInsert;
 
   @JsonKey(ignore: true)
-  $TodoUpsertParameterCopyWith<TodoUpsertParameter> get copyWith;
+  $TodoUpsertProviderParamCopyWith<TodoUpsertProviderParam> get copyWith;
 }
 
 /// @nodoc
-abstract class $TodoUpsertParameterCopyWith<$Res> {
-  factory $TodoUpsertParameterCopyWith(
-          TodoUpsertParameter value, $Res Function(TodoUpsertParameter) then) =
-      _$TodoUpsertParameterCopyWithImpl<$Res>;
+abstract class $TodoUpsertProviderParamCopyWith<$Res> {
+  factory $TodoUpsertProviderParamCopyWith(TodoUpsertProviderParam value,
+          $Res Function(TodoUpsertProviderParam) then) =
+      _$TodoUpsertProviderParamCopyWithImpl<$Res>;
   $Res call({Todo todo, bool isInsert});
 
   $TodoCopyWith<$Res> get todo;
 }
 
 /// @nodoc
-class _$TodoUpsertParameterCopyWithImpl<$Res>
-    implements $TodoUpsertParameterCopyWith<$Res> {
-  _$TodoUpsertParameterCopyWithImpl(this._value, this._then);
+class _$TodoUpsertProviderParamCopyWithImpl<$Res>
+    implements $TodoUpsertProviderParamCopyWith<$Res> {
+  _$TodoUpsertProviderParamCopyWithImpl(this._value, this._then);
 
-  final TodoUpsertParameter _value;
+  final TodoUpsertProviderParam _value;
   // ignore: unused_field
-  final $Res Function(TodoUpsertParameter) _then;
+  final $Res Function(TodoUpsertProviderParam) _then;
 
   @override
   $Res call({
@@ -77,11 +78,11 @@ class _$TodoUpsertParameterCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$TodoUpsertParameterCopyWith<$Res>
-    implements $TodoUpsertParameterCopyWith<$Res> {
-  factory _$TodoUpsertParameterCopyWith(_TodoUpsertParameter value,
-          $Res Function(_TodoUpsertParameter) then) =
-      __$TodoUpsertParameterCopyWithImpl<$Res>;
+abstract class _$TodoUpsertProviderParamCopyWith<$Res>
+    implements $TodoUpsertProviderParamCopyWith<$Res> {
+  factory _$TodoUpsertProviderParamCopyWith(_TodoUpsertProviderParam value,
+          $Res Function(_TodoUpsertProviderParam) then) =
+      __$TodoUpsertProviderParamCopyWithImpl<$Res>;
   @override
   $Res call({Todo todo, bool isInsert});
 
@@ -90,22 +91,23 @@ abstract class _$TodoUpsertParameterCopyWith<$Res>
 }
 
 /// @nodoc
-class __$TodoUpsertParameterCopyWithImpl<$Res>
-    extends _$TodoUpsertParameterCopyWithImpl<$Res>
-    implements _$TodoUpsertParameterCopyWith<$Res> {
-  __$TodoUpsertParameterCopyWithImpl(
-      _TodoUpsertParameter _value, $Res Function(_TodoUpsertParameter) _then)
-      : super(_value, (v) => _then(v as _TodoUpsertParameter));
+class __$TodoUpsertProviderParamCopyWithImpl<$Res>
+    extends _$TodoUpsertProviderParamCopyWithImpl<$Res>
+    implements _$TodoUpsertProviderParamCopyWith<$Res> {
+  __$TodoUpsertProviderParamCopyWithImpl(_TodoUpsertProviderParam _value,
+      $Res Function(_TodoUpsertProviderParam) _then)
+      : super(_value, (v) => _then(v as _TodoUpsertProviderParam));
 
   @override
-  _TodoUpsertParameter get _value => super._value as _TodoUpsertParameter;
+  _TodoUpsertProviderParam get _value =>
+      super._value as _TodoUpsertProviderParam;
 
   @override
   $Res call({
     Object todo = freezed,
     Object isInsert = freezed,
   }) {
-    return _then(_TodoUpsertParameter(
+    return _then(_TodoUpsertProviderParam(
       todo: todo == freezed ? _value.todo : todo as Todo,
       isInsert: isInsert == freezed ? _value.isInsert : isInsert as bool,
     ));
@@ -113,8 +115,8 @@ class __$TodoUpsertParameterCopyWithImpl<$Res>
 }
 
 /// @nodoc
-class _$_TodoUpsertParameter extends _TodoUpsertParameter {
-  _$_TodoUpsertParameter({@required this.todo, @required this.isInsert})
+class _$_TodoUpsertProviderParam extends _TodoUpsertProviderParam {
+  _$_TodoUpsertProviderParam({@required this.todo, @required this.isInsert})
       : assert(todo != null),
         assert(isInsert != null),
         super._();
@@ -126,13 +128,13 @@ class _$_TodoUpsertParameter extends _TodoUpsertParameter {
 
   @override
   String toString() {
-    return 'TodoUpsertParameter(todo: $todo, isInsert: $isInsert)';
+    return 'TodoUpsertProviderParam(todo: $todo, isInsert: $isInsert)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _TodoUpsertParameter &&
+        (other is _TodoUpsertProviderParam &&
             (identical(other.todo, todo) ||
                 const DeepCollectionEquality().equals(other.todo, todo)) &&
             (identical(other.isInsert, isInsert) ||
@@ -148,15 +150,16 @@ class _$_TodoUpsertParameter extends _TodoUpsertParameter {
 
   @JsonKey(ignore: true)
   @override
-  _$TodoUpsertParameterCopyWith<_TodoUpsertParameter> get copyWith =>
-      __$TodoUpsertParameterCopyWithImpl<_TodoUpsertParameter>(
+  _$TodoUpsertProviderParamCopyWith<_TodoUpsertProviderParam> get copyWith =>
+      __$TodoUpsertProviderParamCopyWithImpl<_TodoUpsertProviderParam>(
           this, _$identity);
 }
 
-abstract class _TodoUpsertParameter extends TodoUpsertParameter {
-  _TodoUpsertParameter._() : super._();
-  factory _TodoUpsertParameter({@required Todo todo, @required bool isInsert}) =
-      _$_TodoUpsertParameter;
+abstract class _TodoUpsertProviderParam extends TodoUpsertProviderParam {
+  _TodoUpsertProviderParam._() : super._();
+  factory _TodoUpsertProviderParam(
+      {@required Todo todo,
+      @required bool isInsert}) = _$_TodoUpsertProviderParam;
 
   @override
   Todo get todo;
@@ -164,5 +167,5 @@ abstract class _TodoUpsertParameter extends TodoUpsertParameter {
   bool get isInsert;
   @override
   @JsonKey(ignore: true)
-  _$TodoUpsertParameterCopyWith<_TodoUpsertParameter> get copyWith;
+  _$TodoUpsertProviderParamCopyWith<_TodoUpsertProviderParam> get copyWith;
 }

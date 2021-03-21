@@ -3,10 +3,10 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/model/entities/entities.dart';
 
 import 'todo_upsert_controller.dart';
-import 'todo_upsert_parameter.dart';
+import 'todo_upsert_provider_param.dart';
 
 final todoUpsertProviderFamily = StateNotifierProvider.family
-    .autoDispose<TodoUpsertController, TodoUpsertParameter>((ref, param) {
+    .autoDispose<TodoUpsertController, TodoUpsertProviderParam>((ref, param) {
   return TodoUpsertController(
     ref.read,
     todo: param.todo,
@@ -23,7 +23,7 @@ class TodoUpsertForm extends ConsumerWidget {
   @override
   Widget build(BuildContext context, ScopedReader watch) {
     final todoUpsertProvider = todoUpsertProviderFamily(
-      TodoUpsertParameter(isInsert: isInsert, todo: todo),
+      TodoUpsertProviderParam(isInsert: isInsert, todo: todo),
     );
     return Form(
       key: _formKey,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_todo/model/entities/entities.dart';
 import 'package:flutter_todo/providers/navigator.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'todo_upsert_controller.dart';
 import 'todo_upsert_provider_param.dart';
@@ -30,6 +31,11 @@ class TodoUpsertForm extends ConsumerWidget {
     }
     final isSubmitted = todoUpsertController.submit();
     if (isSubmitted) {
+      Fluttertoast.showToast(
+        msg: todoUpsertController.completedSubmitTxt,
+        textColor: Colors.black,
+        backgroundColor: Colors.grey.shade300,
+      );
       _formKey.currentState.reset();
       Navigator.pop(navigator.currentState.descendantContext);
     }

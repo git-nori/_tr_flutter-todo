@@ -7,6 +7,7 @@ import 'package:flutter_todo/pages/todo_upsert_page/todo_upsert_page_arg.dart';
 import 'package:flutter_todo/providers/providers.dart';
 import 'package:flutter_todo/widgets/confirm_dialog.dart';
 import 'package:flutter_todo/widgets/widgets.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import 'tile/todo_tile.dart';
 
@@ -58,8 +59,14 @@ class _ListView extends ConsumerWidget {
     );
   }
 
-  void _onDismissed(TodoController todoController, Todo todo) =>
-      todoController.deleteTodo(id: todo.id);
+  void _onDismissed(TodoController todoController, Todo todo) {
+    todoController.deleteTodo(id: todo.id);
+    Fluttertoast.showToast(
+      msg: '${todo.title} is deleted',
+      textColor: Colors.black,
+      backgroundColor: Colors.grey.shade300,
+    );
+  }
 
   @override
   Widget build(BuildContext context, ScopedReader watch) {
